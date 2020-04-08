@@ -3,6 +3,8 @@ import React, { useState } from "react";
 
 export default function NumberSetter (props) {
   return (
+    <div className="set-your-number">
+    <h3>Change the range: </h3>
     <form autoComplete="off" onSubmit={event => event.preventDefault()}>
       <input
         className="number-setter"
@@ -16,5 +18,6 @@ export default function NumberSetter (props) {
         data-testid="number-setter-form"
       />
     </form>
+    </div>
   )
 };

@@ -12,12 +12,6 @@ function App() {
   const [actualAnswer, setActualAnswer] = useState(-1);
   const [ifClicked, setIfClicked] = useState(false);
 
-  // console.log('actual', actualAnswer)
-  // console.log('input', inputNumber)
-  // console('clicked', ifClicked)
-  // console.log('compare', setCompareAnswer)
-
-
   const makeRandomNumber = function (max) {
     return Math.floor(Math.random() * Math.floor(max))
   };
@@ -49,7 +43,9 @@ function App() {
       <h4>Answer:</h4>
       {ifClicked && <Result 
       actualAnswer={actualAnswer}
-      compareAnswer={compareAnswer}/>}
+      compareAnswer={compareAnswer}
+      setIfClicked={setIfClicked}
+      />}
     </div>
   );
 }
