@@ -1,21 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+const Button = (props) => {
+  return (
+    <button onClick={function () {
+      props.setIfClicked(state => (true));
+      if (props.actualAnswer === props.inputNumber) {
+        props.setCompareAnswer(state => (true))
+      } else {
+        props.setCompareAnswer(state => (false))
+      }
+    }
+    }
+    >Check!</button>
+  )
+}
 
 export default function Form(props) {
-  // const [number, setNumber] = useState(0)
   return (
-    <form autoComplete="off" onSubmit={event => event.preventDefault()}>
-      <input
-        className="guess-number"
-        name={props.name}
-        type="number"
-        placeholder="Guess a number!"
-        onChange={(event) => {
-          props.setNumber(event.target.value)
-        }
-        }
-        value={props.number}
-        data-testid="number-input"
-      />
-    </form>
+    <div className="input-your-guess">
+      <form autoComplete="off" onSubmit={event => event.preventDefault()}>
+        <input
+          className="guess-number"
+          type="number"
+          placeholder="Guess a number!"
+          onChange={(event) => {
+            props.setInputNumber(event.target.value)
+          }
+          }
+          value={props.inputNumber}
+          data-testid="number-input"
+        />
+      </form>
+      <Button setIfClicked={props.setIfClicked} setCompareAnswer={props.setCompareAnswer}/>
+    </div>
   )
 }
