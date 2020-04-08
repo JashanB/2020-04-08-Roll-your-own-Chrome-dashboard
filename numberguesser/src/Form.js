@@ -4,7 +4,10 @@ const Button = (props) => {
   return (
     <button onClick={function () {
       props.setIfClicked(state => (true));
-      if (props.actualAnswer === props.inputNumber) {
+      console.log('actual',props.actualAnswer)
+      console.log('input',props.inputNumber)
+
+      if (props.actualAnswer == props.inputNumber) {
         props.setCompareAnswer(state => (true))
       } else {
         props.setCompareAnswer(state => (false))
@@ -31,7 +34,7 @@ export default function Form(props) {
           data-testid="number-input"
         />
       </form>
-      <Button setIfClicked={props.setIfClicked} setCompareAnswer={props.setCompareAnswer}/>
+      <Button setIfClicked={props.setIfClicked} inputNumber={props.inputNumber} actualAnswer={props.actualAnswer} setCompareAnswer={props.setCompareAnswer}/>
     </div>
   )
 }

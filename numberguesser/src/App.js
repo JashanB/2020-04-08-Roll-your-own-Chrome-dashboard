@@ -13,7 +13,7 @@ function App() {
   const [ifClicked, setIfClicked] = useState(false);
 
   const makeRandomNumber = function (max) {
-    return Math.floor(Math.random() * Math.floor(max))
+    return Math.floor(Math.random() * Math.floor(max));
   };
 
   useEffect(() => {
@@ -45,6 +45,7 @@ function App() {
       actualAnswer={actualAnswer}
       compareAnswer={compareAnswer}
       setIfClicked={setIfClicked}
+      setDefaultNum={setDefaultNum}
       />}
     </div>
   );
