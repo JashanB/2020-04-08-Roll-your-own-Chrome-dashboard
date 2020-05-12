@@ -7,7 +7,7 @@ import Result from './Result'
 
 function App() {
   const [inputNumber, setInputNumber] = useState(0)
-  const [defaultNum, setDefaultNum] = useState(10);
+  const [range, setRange] = useState(10);
   const [compareAnswer, setCompareAnswer] = useState(false);
   const [actualAnswer, setActualAnswer] = useState(-1);
   const [ifClicked, setIfClicked] = useState(false);
@@ -17,14 +17,14 @@ function App() {
   };
 
   useEffect(() => {
-    let newNumber =  makeRandomNumber(defaultNum)
+    let newNumber =  makeRandomNumber(range)
     setActualAnswer(state => (newNumber))
-  }, [defaultNum])
+  }, [range])
 
   return (
     <div className="App">
       <h2>Need a break?</h2>
-      <h3> Guess a number out of {defaultNum}</h3>
+      <h3> Guess a number out of {range}</h3>
       <Form
         ifClicked={ifClicked}
         setIfClicked={setIfClicked}
@@ -33,19 +33,19 @@ function App() {
         setCompareAnswer={setCompareAnswer}
         inputNumber={inputNumber}
         setInputNumber={setInputNumber}
-        defaultNum={defaultNum} 
+        range={range} 
         />
       <NumberSetter
         makeRandomNumber={makeRandomNumber}
-        defaultNum={defaultNum}
-        setDefaultNum={setDefaultNum} 
+        range={range}
+        setRange={setRange} 
         />
       <h4>Answer:</h4>
       {ifClicked && <Result 
       actualAnswer={actualAnswer}
       compareAnswer={compareAnswer}
       setIfClicked={setIfClicked}
-      setDefaultNum={setDefaultNum}
+      setRange={setRange}
       />}
     </div>
   );

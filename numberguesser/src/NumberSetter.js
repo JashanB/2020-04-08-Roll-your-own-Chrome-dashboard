@@ -11,10 +11,10 @@ export default function NumberSetter (props) {
         type="number"
         placeholder="Guess a number!"
         onChange={(event) => {
-          props.setDefaultNum(event.target.value)
+          props.setRange(event.target.value)
         }
         }
-        value={props.defaultNum}
+        value={props.range}
         data-testid="number-setter-form"
       />
     </form>
