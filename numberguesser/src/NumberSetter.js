@@ -10,8 +10,8 @@ export default function NumberSetter (props) {
         className="number-setter"
         type="number"
         placeholder="Guess a number!"
-        onChange={(event) => {
-          props.setRange(event.target.value)
+        onChange={event => {
+          props.setRange(event.target.value);
         }
         }
         value={props.range}

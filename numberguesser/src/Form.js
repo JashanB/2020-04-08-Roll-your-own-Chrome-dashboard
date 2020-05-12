@@ -3,14 +3,18 @@ import React, { useState, useEffect } from "react";
 const Button = (props) => {
   return (
     <button onClick={function () {
-      props.setIfClicked(state => (true));
-      console.log('actual',props.actualAnswer)
-      console.log('input',props.inputNumber)
+      if (props.checkAnswer === false) {
+        props.setCheckAnswer(state => (true));
+        console.log('actual', props.actualAnswer)
+        console.log('input', props.inputNumber)
 
-      if (props.actualAnswer == props.inputNumber) {
-        props.setCompareAnswer(state => (true))
-      } else {
-        props.setCompareAnswer(state => (false))
+        if (props.actualAnswer == props.inputNumber) {
+          console.log('equal')
+          props.setCompareAnswer(state => (true));
+        } else {
+          console.log('not equal')
+          props.setCompareAnswer(state => (false));
+        }
       }
     }
     }
@@ -34,7 +38,7 @@ export default function Form(props) {
           data-testid="number-input"
         />
       </form>
-      <Button setIfClicked={props.setIfClicked} inputNumber={props.inputNumber} actualAnswer={props.actualAnswer} setCompareAnswer={props.setCompareAnswer}/>
+      <Button setCheckAnswer={props.setCheckAnswer} checkAnswer={props.checkAnswer} inputNumber={props.inputNumber} actualAnswer={props.actualAnswer} setCompareAnswer={props.setCompareAnswer} />
     </div>
   )
 }
