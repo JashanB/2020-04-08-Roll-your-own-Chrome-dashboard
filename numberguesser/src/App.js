@@ -6,7 +6,7 @@ import NumberSetter from './NumberSetter'
 import Result from './Result'
 
 function App() {
-  const [inputNumber, setInputNumber] = useState(0)
+  const [inputNumber, setInputNumber] = useState(0);
   const [range, setRange] = useState(10);
   const [compareAnswer, setCompareAnswer] = useState(false);
   const [actualAnswer, setActualAnswer] = useState(-1);
@@ -17,9 +17,9 @@ function App() {
   };
 
   useEffect(() => {
-    let newNumber =  makeRandomNumber(range)
-    setActualAnswer(state => (newNumber))
-  }, [range])
+    let newNumber = makeRandomNumber(range);
+    setActualAnswer(state => (newNumber));
+  }, [range, ifClicked]);
 
   return (
     <div className="App">
@@ -33,20 +33,22 @@ function App() {
         setCompareAnswer={setCompareAnswer}
         inputNumber={inputNumber}
         setInputNumber={setInputNumber}
-        range={range} 
-        />
+        range={range}
+      />
       <NumberSetter
         makeRandomNumber={makeRandomNumber}
         range={range}
-        setRange={setRange} 
-        />
-      <h4>Answer:</h4>
-      {ifClicked && <Result 
-      actualAnswer={actualAnswer}
-      compareAnswer={compareAnswer}
-      setIfClicked={setIfClicked}
-      setRange={setRange}
-      />}
+        setRange={setRange}
+      />
+      {ifClicked &&
+        <h4>Answer:</h4> &&
+        <Result
+          actualAnswer={actualAnswer}
+          compareAnswer={compareAnswer}
+          setIfClicked={setIfClicked}
+          range={range}
+          setRange={setRange}
+        />}
     </div>
   );
 }
